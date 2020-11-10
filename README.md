@@ -22,11 +22,22 @@ Example:
 
 ### useForm
 
-This hooks helps managing forms. It receives an object with all the form fields, and returns an array with the form values alongside a handleInputChange & reset functions
+This hook helps managing forms. It receives an object with all the form fields, and returns an array with the form values alongside a handleInputChange & reset functions
 Example:
 ```
     const initialForm = {
         ...formFields
     };
     const [ values, handleInputChange, reset ] = useForm(initialForm);
+```
+
+### useInterval
+
+This hook helps to manage an interval. It receives a callback function and a delay. It runs the callback every x seconds, specified by the delay. If the component is dismounted the hook automatically clears the interval. This is usefull is you need to poll a server for example.
+Example:
+```
+    useInterval(async () => {
+        const data = await fetch('...');
+        ...
+    }, 5000);
 ```
